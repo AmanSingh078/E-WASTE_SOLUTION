@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Solutions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4CAF50, #A1887F);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(52, 58, 64, 0.9);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 120px 0;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
+            background-size: cover;
+            transition: background-image 1s ease-in-out;
+            background-image: url('images/WhatsApp Image 2025-02-17 at 22.12.00_f41eee0c.jpg'); /* Initial background image */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, #28a745, #218838);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            z-index: 1;
+        }
+
+        .btn-custom:hover {
+            background: #218838;
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes iconAnimation {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes alwaysRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .icon {
+            transition: transform 0.3s ease;
+        }
+
+        .icon.animate {
+            animation: iconAnimation 0.5s infinite;
+        }
+
+        .icon.always-rotate {
+            animation: alwaysRotate 2s linear infinite; /* Always rotating animation */
+        }
+
+        .icon.bounce {
+            animation: bounce 1s infinite; /* Bounce animation */
+        }
+
+        /* Card Styles */
+        .text-image-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            padding: 20px;
+            background: #B3E5FC;
+            border: 2px solid #4CAF50;
+            height: 250px;
+        }
+
+        .text-image-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #218838;
+            background: #81D4FA;
+        }
+
+        .text-image-section .text {
+            flex: 1;
+            padding: 30px;
+            background-color: transparent;
+        }
+
+        .text-image-section .image {
+            flex: 1;
+        }
+
+        .image img {
+            max-width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* AI Card Styles */
+        .ai-card {
+            background: #a1d1bf;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .ai-card h2 {
+            font-size: 2.5rem;
+            color: #00796B;
+            margin-bottom: 20px;
+        }
+
+        .ai-card p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .ai-card img {
+            max-width: 50%;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .text-image-section {
+                flex-direction: column;
+                margin: 15px 0;
+            }
+            .text-image-section .text {
+                padding: 20px;
+            }
+            .ai-card img {
+                max-width: 80%;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #28a745;
+        }
+        .section-heading {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+            color: #000000;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-recycle icon always-rotate"></i> E-Waste Solutions
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="awerness.html">Awareness</a></li>
+                <li class="nav-item"><a class="nav-link" href="solution.html">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="repair.html">Repair</a></li>
+                <li class="nav-item"><a class="nav-link" href="REFURBISH.html">Buy Refurbished Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="sell.html">Sell E-Waste</a></li>
+                <li class="nav-item"><a class="nav-link" href="CONTECT.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="hero" id="home">
+        <h1><i class="fas fa-recycle icon always-rotate"></i> Welcome to E-Waste Solutions</h1>
+        <p>Promoting sustainable practices to reduce electronic waste</p>
+        <a href="learmore.html" class="btn btn-custom">Learn More</a>
+    </div>
+
+    <div class="container">
+        <h2 class="section-heading">Our Solutions</h2>
+        <a href="repair.html" class="text-image-section">
+            <div class="text">
+                <h3><i class="fas fa-wrench icon"></i> Repair</h3>
+                <p>Fixing electronics to extend their lifespan. Our expert technicians are here to help you with all your repair needs.</p>
+            </div>
+            <div class="image">
+                <img src="images/WhatsApp Image 2025-03-13 at 22.47.28_94d0e134.jpg" alt="Repair Services">
+            </div>
+        </a>
+        <a href="REFURBISH.html" class="text-image-section">
+            <div class="text">
+                <h3><i class="fas fa-shopping-cart icon"></i> Buy Refurbished Products</h3>
+                <p>Support sustainable buying through refurbished electronics. Get quality products at a fraction of the price.</p>
+            </div>
+            <div class="image">
+                <img src="images/3d-flat-icon-individual-with-electronics-store-gadgets-shopping-cart-double-exposure-wh_980716-334754.avif" alt="Refurbished Products">
+            </div>
+        </a>
+        <a href="sell.html" class="text-image-section">
+            <div class="text">
+                <h3><i class="fas fa-arrow-alt-circle-down icon"></i> Sell E-Waste</h3>
+                <p>Sell your old electronics for recycling or reuse. Help us reduce e-waste and promote sustainability.</p>
+            </div>
+            <div class="image">
+                <img src="images/3918153.webp" alt="Sell E-Waste">
+            </div>
+        </a>
+        <a href="CONTECT.html" class="text-image-section">
+            <div class="text">
+                <h3><i class="fas fa-phone-alt icon"></i> Contact Us</h3>
+                <p>Get in touch for more information or assistance. We are here to help you with all your e-waste needs.</p>
+            </div>
+            <div class="image">
+                <img src="images/WhatsApp Image 2025-03-13 at 22.47.57_d444a38c.jpg" alt="Contact Us">
+            </div>
+        </a>
+    </div>
+
+    <!-- AI Card Section -->
+    <div class="container">
+        <div class="ai-card">
+            <h2><i class="fas fa-robot icon bounce"></i> Ask Our AI About E-Waste</h2>
+            <p>Have questions about e-waste? Our AI is here to help! Click the button below to start a conversation.</p>
+            <img src="images/ai-chatbot.png" alt="" class="img-fluid">
+            <a href="ai.html" class="btn btn-custom">Chat with AI</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 E-Waste Solutions. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </footer>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Array of background images
+        const images = [
+            'images/WhatsApp Image 2025-02-17 at 22.12.00_f41eee0c.jpg',
+            'images/WhatsApp Image 2025-02-17 at 22.17.58_8d1cfa57.jpg',
+            'images/WhatsApp Image 2025-02-17 at 22.17.58_a45d2a6f.jpg',
+            'images/WhatsApp Image 2025-02-17 at 22.19.33_5eee7fce.jpg',
+            'images/A-Beginners-Guide-to-E-Waste-Recycling.jpg',
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            const heroSection = document.querySelector('.hero');
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            heroSection.style.backgroundImage = `url('${images[currentIndex]}')`; // Change background image
+        }
+
+        setInterval(changeBackground, 5000); // Change every 5 seconds
+
+        // Select all text-image sections and the AI icon
+        const cards = document.querySelectorAll('.text-image-section');
+        const aiIcon = document.querySelector('.ai-card .fas');
+
+        // Function to start animation
+        function startAnimation() {
+            aiIcon.classList.remove('animate'); // Stop AI icon animation
+            this.querySelector('.icon').classList.add('animate'); // Start card icon animation
+        }
+
+        // Function to stop animation
+        function stopAnimation() {
+            this.querySelector('.icon').classList.remove('animate'); // Stop card icon animation
+            aiIcon.classList.add('animate'); // Restart AI icon animation
+        }
+
+        // Add event listeners to each card
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', startAnimation);
+            card.addEventListener('mouseleave', stopAnimation);
+        });
+    </script>
+</body>
+</html>
