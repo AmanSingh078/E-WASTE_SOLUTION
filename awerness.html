@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awareness - E-Waste Solutions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #59765a, #A1887F);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(52, 58, 64, 0.9);
+        }
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 40px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .content {
+            padding: 20px;
+            background: #f9f9f9; /* Light background for cards */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #28a745;
+        }
+        .icon {
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+        .sound-icon {
+            font-size: 1.5rem;
+            margin-left: 10px;
+            cursor: pointer;
+            color: red; /* Default color for sound off */
+        }
+        .sound-icon.active {
+            color: blue; /* Color when sound is on */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-recycle"></i> E-Waste Solutions
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="solution.html">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="learmore.html">Learn More</a></li>
+                <li class="nav-item"><a class="nav-link" href="CONTECT.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-heading">Awareness About E-Waste</h2>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-exclamation-triangle"></i> The E-Waste Crisis ⚠️
+                        <i class="sound-icon fas fa-volume-up" data-text="The rapid advancement of technology has led to an increase in electronic waste. E-waste is one of the fastest-growing waste streams globally, with millions of tons generated each year. Understanding the scale of this crisis is crucial for effective management. In 2019, the world generated approximately 53.6 million metric tons of e-waste, and this number is expected to rise to 74 million metric tons by 2030. This alarming trend highlights the urgent need for awareness and action."></i>
+                    </h3>
+                    <p>The rapid advancement of technology has led to an increase in electronic waste. E-waste is one of the fastest-growing waste streams globally, with millions of tons generated each year. Understanding the scale of this crisis is crucial for effective management.</p>
+                    <p>In 2019, the world generated approximately 53.6 million metric tons of e-waste, and this number is expected to rise to 74 million metric tons by 2030. This alarming trend highlights the urgent need for awareness and action.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-leaf"></i> Environmental Impact 🌍
+                        <i class="sound-icon fas fa-volume-up" data-text="Improper disposal of e-waste can lead to severe environmental consequences. Hazardous materials found in electronics, such as lead, mercury, and cadmium, can leach into the soil and water, contaminating ecosystems and posing health risks to humans and wildlife. Landfills overflowing with e-waste can release toxic substances into the air, contributing to air pollution and climate change. Recycling e-waste properly can mitigate these impacts and promote a healthier environment."></i>
+                    </h3>
+                    <p>Improper disposal of e-waste can lead to severe environmental consequences. Hazardous materials found in electronics, such as lead, mercury, and cadmium, can leach into the soil and water, contaminating ecosystems and posing health risks to humans and wildlife.</p>
+                    <p>Landfills overflowing with e-waste can release toxic substances into the air, contributing to air pollution and climate change. Recycling e-waste properly can mitigate these impacts and promote a healthier environment.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-user-shield"></i> Health Risks 🏥
+                        <i class="sound-icon fas fa-volume-up" data-text="Workers involved in e-waste recycling often face exposure to toxic substances, leading to serious health issues. Prolonged exposure to hazardous materials can result in respiratory problems, skin diseases, and neurological disorders. Communities near e-waste dumping sites are also at risk, as contaminated water and soil can lead to long-term health effects. Understanding these risks is essential for advocating for safer recycling practices and regulations."></i>
+                    </h3>
+                    <p>Workers involved in e-waste recycling often face exposure to toxic substances, leading to serious health issues. Prolonged exposure to hazardous materials can result in respiratory problems, skin diseases, and neurological disorders.</p>
+                    <p>Communities near e-waste dumping sites are also at risk, as contaminated water and soil can lead to long-term health effects. Understanding these risks is essential for advocating for safer recycling practices and regulations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-recycle"></i> Responsible Disposal ♻️
+                        <i class="sound-icon fas fa-volume-up" data-text="It is vital to dispose of electronic devices responsibly. Recycling e-waste through certified programs ensures that hazardous materials are handled safely and valuable resources are recovered. Many local governments and organizations offer e-waste recycling programs. By participating in these programs, individuals can help reduce the amount of e-waste that ends up in landfills and promote sustainable practices in their communities."></i>
+                    </h3>
+                    <p>It is vital to dispose of electronic devices responsibly. Recycling e-waste through certified programs ensures that hazardous materials are handled safely and valuable resources are recovered. Many local governments and organizations offer e-waste recycling programs.</p>
+                    <p>By participating in these programs, individuals can help reduce the amount of e-waste that ends up in landfills and promote sustainable practices in their communities.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-lightbulb"></i> Educating the Community 📚
+                        <i class="sound-icon fas fa-volume-up" data-text="Community education is key to reducing e-waste. Workshops, seminars, and outreach programs can inform individuals about the importance of responsible e-waste disposal and recycling. Schools, businesses, and local organizations can play a significant role in spreading awareness. By providing resources and information, we can empower individuals to make informed decisions about their electronic devices and encourage them to participate in recycling initiatives."></i>
+                    </h3>
+                    <p>Community education is key to reducing e-waste. Workshops, seminars, and outreach programs can inform individuals about the importance of responsible e-waste disposal and recycling. Schools, businesses, and local organizations can play a significant role in spreading awareness.</p>
+                    <p>By providing resources and information, we can empower individuals to make informed decisions about their electronic devices and encourage them to participate in recycling initiatives.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-hand-holding-heart"></i> How You Can Help 🤝
+                        <i class="sound-icon fas fa-volume-up" data-text="Everyone can contribute to reducing e-waste. Here are some ways to get involved: Participate in local e-waste recycling events. Educate others about responsible e-waste disposal. Support companies that prioritize sustainability. Advocate for policies promoting e-waste recycling. By taking these actions, you can help create a more sustainable future and reduce the impact of e-waste on our planet."></i>
+                    </h3>
+                    <p>Everyone can contribute to reducing e-waste. Here are some ways to get involved:</p>
+                    <ul>
+                        <li>Participate in local e-waste recycling events. 📅</li>
+                        <li>Educate others about responsible e-waste disposal. 🗣️</li>
+                        <li>Support companies that prioritize sustainability. 🌿</li>
+                        <li>Advocate for policies promoting e-waste recycling. 📜</li>
+                    </ul>
+                    <p>By taking these actions, you can help create a more sustainable future and reduce the impact of e-waste on our planet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-chart-line"></i> The Future of E-Waste Management 🔮
+                        <i class="sound-icon fas fa-volume-up" data-text="Innovative solutions and technologies are emerging to tackle the e-waste crisis. The future of e-waste management will rely on collaboration between governments, businesses, and communities to create sustainable practices. New recycling technologies, such as automated sorting systems and advanced material recovery techniques, are being developed to improve efficiency and reduce costs. Additionally, the concept of a circular economy is gaining traction, where products are designed for longevity, repairability, and recyclability. This shift can significantly reduce the amount of e-waste generated and promote a more sustainable approach to electronics manufacturing."></i>
+                    </h3>
+                    <p>Innovative solutions and technologies are emerging to tackle the e-waste crisis. The future of e-waste management will rely on collaboration between governments, businesses, and communities to create sustainable practices.</p>
+                    <p>New recycling technologies, such as automated sorting systems and advanced material recovery techniques, are being developed to improve efficiency and reduce costs.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-globe"></i> Global Initiatives 🌐
+                        <i class="sound-icon fas fa-volume-up" data-text="Several global initiatives aim to address the e-waste problem, including the Basel Convention and the WEEE Directive. These initiatives promote responsible e-waste management and encourage international cooperation. Countries are increasingly adopting regulations to manage e-waste effectively, and international organizations are working to establish best practices for e-waste recycling and disposal. By participating in these initiatives, nations can work together to combat the e-waste crisis on a global scale."></i>
+                    </h3>
+                    <p>Several global initiatives aim to address the e-waste problem, including the Basel Convention and the WEEE Directive. These initiatives promote responsible e-waste management and encourage international cooperation.</p>
+                    <p>Countries are increasingly adopting regulations to manage e-waste effectively, and international organizations are working to establish best practices for e-waste recycling and disposal.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-comments"></i> Join the Conversation 💬
+                        <i class="sound-icon fas fa-volume-up" data-text="Engage with others in your community about e-waste issues. Share information, participate in discussions, and advocate for responsible e-waste management practices. Social media platforms and community forums can be effective tools for raising awareness and mobilizing action. By fostering a dialogue around e-waste, we can inspire collective action and drive change in our communities. Encourage local leaders to prioritize e-waste management and support initiatives that promote sustainability."></i>
+                    </h3>
+                    <p>Engage with others in your community about e-waste issues. Share information, participate in discussions, and advocate for responsible e-waste management practices. Social media platforms and community forums can be effective tools for raising awareness and mobilizing action.</p>
+                    <p>By fostering a dialogue around e-waste, we can inspire collective action and drive change in our communities. Encourage local leaders to prioritize e-waste management and support initiatives that promote sustainability.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-tools"></i> Repair and Reuse 🔧
+                        <i class="sound-icon fas fa-volume-up" data-text="Before disposing of electronic devices, consider repairing or reusing them. Many devices can be fixed with simple repairs, extending their lifespan and reducing e-waste. Local repair shops and community repair events can provide resources and support for individuals looking to fix their electronics. Additionally, donating or selling old devices can give them a second life, benefiting others while minimizing waste. Encourage a culture of repair and reuse in your community to further reduce e-waste."></i>
+                    </h3>
+                    <p>Before disposing of electronic devices, consider repairing or reusing them. Many devices can be fixed with simple repairs, extending their lifespan and reducing e-waste. Local repair shops and community repair events can provide resources and support for individuals looking to fix their electronics.</p>
+                    <p>Additionally, donating or selling old devices can give them a second life, benefiting others while minimizing waste. Encourage a culture of repair and reuse in your community to further reduce e-waste.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-balance-scale"></i> Policy Advocacy 📢
+                        <i class="sound-icon fas fa-volume-up" data-text="Advocating for stronger e-waste policies is essential for effective management. Engage with local representatives and support legislation that promotes e-waste recycling, responsible disposal, and sustainable electronics manufacturing. By raising awareness about the importance of e-waste management, you can influence decision-makers and encourage them to prioritize this critical issue. Join or support organizations that focus on environmental advocacy and e-waste issues."></i>
+                    </h3>
+                    <p>Advocating for stronger e-waste policies is essential for effective management. Engage with local representatives and support legislation that promotes e-waste recycling, responsible disposal, and sustainable electronics manufacturing.</p>
+                    <p>By raising awareness about the importance of e-waste management, you can influence decision-makers and encourage them to prioritize this critical issue. Join or support organizations that focus on environmental advocacy and e-waste issues.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card content">
+                    <h3>
+                        <i class="icon fas fa-chart-pie"></i> Understanding E-Waste Composition 📊
+                        <i class="sound-icon fas fa-volume-up" data-text="Understanding the composition of e-waste is crucial for effective recycling. E-waste contains valuable materials such as gold, silver, and copper, as well as hazardous substances that require careful handling. By educating yourself and others about what e-waste contains, you can better appreciate the importance of recycling and responsible disposal. Awareness of e-waste composition can also drive innovation in recycling technologies, leading to more efficient recovery of valuable materials and safer handling of hazardous substances."></i>
+                    </h3>
+                    <p>Understanding the composition of e-waste is crucial for effective recycling. E-waste contains valuable materials such as gold, silver, and copper, as well as hazardous substances that require careful handling.</p>
+                    <p>By educating yourself and others about what e-waste contains, you can better appreciate the importance of recycling and responsible disposal. Awareness of e-waste composition can also drive innovation in recycling technologies, leading to more efficient recovery of valuable materials and safer handling of hazardous substances.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 E-Waste Solutions. All rights reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </footer >
+    <script>
+        let currentSpeech = null;
+        let femaleVoice = null;
+
+        // Function to load voices
+        function loadVoices() {
+            const voices = window.speechSynthesis.getVoices();
+            femaleVoice = voices.find(voice => voice.name.includes('Female')) || voices[0]; // Fallback to the first voice
+        }
+
+        // Function to speak the text
+        function speak(text) {
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'en-US'; // Set the language
+            speech.voice = femaleVoice; // Set the female voice
+            window.speechSynthesis.speak(speech);
+            return speech; // Return the speech object for later use
+        }
+
+        // Load voices when the page loads
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+
+        // Add event listeners to the sound icons
+        document.querySelectorAll('.sound-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                const text = icon.getAttribute('data-text'); // Get the text from the data attribute
+                
+                // Check if there is currently speech being spoken
+                if (window.speechSynthesis.speaking) {
+                    // If the same text is being spoken, stop it
+                    if (currentSpeech && currentSpeech.text === text) {
+                        window.speechSynthesis.cancel(); // Stop the speech
+                        icon.classList.remove('active'); // Change icon color to red
+                        currentSpeech = null; // Reset current speech
+                    } else {
+                        window.speechSynthesis.cancel(); // Stop the current speech
+                        currentSpeech = speak(text); // Speak the new text
+                        icon.classList.add('active'); // Change icon color to blue
+                    }
+                } else {
+                    currentSpeech = speak(text); // Speak the text if nothing is being spoken
+                    icon.classList.add('active'); // Change icon color to blue
+                }
+            });
+        });
+    </script>
+</body>
+</html>

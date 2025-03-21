@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repair Hotline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4caf50, #8bc34a, #ffeb3b);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
+
+    /* Gradient animation */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      color: #333;
+      padding: 40px 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
+      margin-bottom: 40px;
+      text-align: center;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      transform: translateY(0);
+    }
+
+    header h1 {
+      font-size: 45px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #4caf50;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 120px; /* Adjusted size for the icon */
+      color: #4caf50; /* Icon color */
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    nav ul li {
+      margin: 0 25px;
+    }
+
+    nav ul li a {
+      color: #4caf50;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 12px 22px;
+      border-radius: 30px;
+      transition: color 0.3s, background 0.3s;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .section {
+      margin: 80px 0;
+      padding: 40px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .contact-info p {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info span {
+      font-weight: 600;
+      color: #4caf50;
+      margin-left: 10px;
+    }
+
+    .contact-info i {
+      font-size: 24px;
+      color: #4caf50;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    form label {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    form input,
+    form textarea {
+      margin-bottom: 20px;
+      padding: 15px;
+      font-size: 16px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #4caf50;
+      outline: none;
+    }
+
+    form button {
+      background-color: #4caf50;
+      color: white;
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form button:hover {
+      background-color: #388e3c;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .confirmation-message {
+      margin-top: 30px;
+      padding: 25px;
+      background-color: #e7f9e7;
+      border: 2px solid #4caf50;
+      border-radius: 12px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .confirmation-message h3 {
+      color: #4caf50;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .confirmation-message p {
+      font-size: 18px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .section {
+        margin: 40px 0;
+        padding: 25px;
+      }
+
+      nav ul {
+        text-align: left;
+      }
+
+      nav ul li {
+        display: block;
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <i class="fas fa-wrench logo"></i>
+      <h1>Electronic Repairing</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#repair-request">Request a Repair</a></li>
+          <li><a href="#status">Check Status</a></li>
+          <li><a href="CONTECT.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="repair-request" class="section">
+    <div class="container">
+      <h2>Request a Repair</h2>
+      <form id="repair-form" onsubmit="generateTicket(event)">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name...." required />
+
+        <label for="phone">Your Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number..." required />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address..." required />
+         
+        <label for="product">Device Type</label>
+        <input type="text" id="product" name="product" placeholder="Enter your device type..." required />
+
+        <label for="model">Device Model</label>
+        <input type="text" id="model" name="model" placeholder="Enter your device model" required />
+
+        <label for="issue">Describe the Issue</label>
+        <textarea id="issue" name="issue" placeholder="Describe the issue with your product" required></textarea>
+
+        <button type="submit">Submit Repair Request</button>
+      </form>
+      <!-- Confirmation Message Area -->
+      <div id="confirmation-message" class="confirmation-message"></div>
+    </div>
+  </section>
+
+  <section id="status" class="section">
+    <div class="container">
+      <h2>Check Repair Status</h2>
+      <form id="status-form" onsubmit="checkTicketStatus(event)">
+        <label for="ticket-id">Enter Ticket ID</label>
+        <input type="text" id="ticket-id" name="ticket-id" placeholder="Enter your ticket ID" required />
+        <button type="submit">Check Status</button>
+      </form>
+      <!-- Ticket Status Message Area -->
+      <div id="status-message" class="confirmation-message"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <p>
+          <i class="fas fa-phone-alt"></i><strong>Call us:</strong>
+          <span>1-800-XXX-XXXX</span> (Mon - Fri, 9 AM to 6 PM)
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i><strong>Email us:</strong>
+          <span>support@example.com</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 . All rights Electronic Repairing.reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function generateTicket(event) {
+      event.preventDefault(); 
+      const ticketId = 'TICKET-' + Math.floor(Math.random() * 1000000);
+      const confirmationMessage = `
+        <h3>Request Accepted Successfully!</h3>
+        <p>Your request has been received. We will call you within 24 hours.</p>
+        <p>Your Ticket ID: <strong>${ticketId}</strong></p>
+      `;
+      document.getElementById('confirmation-message').innerHTML = confirmationMessage;
+      document.getElementById('repair-form').reset();
+    }
+
+    function checkTicketStatus(event) {
+      event.preventDefault(); 
+      const ticketId = document.getElementById('ticket-id').value;
+      const statusMessage = `
+        <h3>Ticket Status: Working</h3>
+        <p>We are processing your request and will contact you as soon as possible.</p>
+        <p>Your Ticket ID: <strong>${ticketId}</strong></p>
+      `;
+      document.getElementById('status-message').innerHTML = statusMessage;
+      document.getElementById('status-form').reset();
+    }
+  </script>
+</body>
+</html>
