@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currently Not Available</title>
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Favicon Added -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
     <style>
         body {
             display: flex;
@@ -55,7 +57,7 @@
             margin-top: 20px;
             font-size: 28px;
             opacity: 0;
-            animation: fadeIn 1s ease-in-out 1s forwards; /* Delay for message */
+            animation: fadeIn 1s ease-in-out 1s forwards;
             text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             letter-spacing: 1px;
         }
@@ -65,10 +67,9 @@
             bottom: 20px;
             font-size: 16px;
             color: rgba(255, 255, 255, 0.7);
-            animation: fadeIn 1s ease-in-out 2s forwards; /* Delay for footer */
+            animation: fadeIn 1s ease-in-out 2s forwards;
         }
 
-        /* Pulse effect for the spinner */
         .spinner:before {
             content: '';
             position: absolute;
@@ -98,21 +99,47 @@
             }
         }
 
-        /* Adding a bouncing effect to the message */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #157e36;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .home-button:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+        }
+
+        .home-button:active {
+            transform: scale(0.95);
+        }
+
+        .home-button i {
+            margin-right: 8px; /* Space between icon and text */
+            animation: bounce 1s infinite; /* Add bounce animation to the icon */
+        }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
             }
             40% {
-                transform: translateY(-10px);
-            }
-            60% {
                 transform: translateY(-5px);
             }
-        }
-
-        .message {
-            animation: bounce 2s infinite;
+            60% {
+                transform: translateY(-3px);
+            }
         }
     </style>
 </head>
@@ -121,15 +148,21 @@
         <div class="spinner"></div>
         <p class="message">Currently Not Available, please wait...</p>
     </div>
-    <div class="footer">© 2025 WhisperWel</div>
+    <button class="home-button" onclick="goHome()">
+        <i class="fas fa-home"></i> Home
+    </button>
+    <div class="footer">© 2025 E-Waste Solution</div>
 
     <script>
-        // Simulate a process that takes time
         setTimeout(() => {
             document.querySelector('.spinner').style.display = 'none';
-            document.querySelector('.message').textContent = 'Sorry,Work is currently unavailable! we try our best to give you servies';
-            document.querySelector('.message').style.opacity = '1'; // Show message
-        }, 5000); // Change the time as needed (5000ms = 5 seconds)
+            document.querySelector('.message').innerHTML = '🚫 Sorry, work is currently unavailable in your city! We will provide services as soon as possible.';
+            document.querySelector('.message').style.opacity = '1';
+        }, 5000);
+
+        function goHome() {
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
     </script>
 </body>
 </html>
