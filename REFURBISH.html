@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refurbished Electronics Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #e0f7fa; /* Light teal background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            color: #333; /* Dark grey text */
+        }
+        .container {
+            background: white; /* White container */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #ff6f61; /* Coral color for headings */
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 24px;
+            color: #ff6f61; /* Coral color for cart icon */
+        }
+        #cartCount {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff2b5e; /* Bright color for cart count */
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 14px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid #ccc; /* Light grey border */
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .search-bar input:focus {
+            border-color: #ff6f61; /* Coral color on focus */
+            outline: none;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .product {
+            background: #ffffff; /* White product card */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 220px;
+            position: relative; /* Make the product position relative for tooltip positioning */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .product img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .product h2 {
+            font-size: 18px;
+            color: #333; /* Dark grey for product titles */
+            margin: 10px 0;
+        }
+        .product p {
+            color: #ff6f61; /* Coral color for price */
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .description {
+            background-color: #f9f9f9; /* Light grey background for description */
+            color: #555; /* Dark grey for description text */
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .rating {
+            color: #ffcc00; /* Gold color for stars */
+            margin: 10px 0;
+        }
+        .buy-btn {
+            background: #00796b; /* Teal for buttons */
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .buy-btn:hover {
+            background: #00695c; /* Darker teal on hover */
+            transform: scale(1.05);
+        }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white; /* White cart background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            display: none;
+            transition: transform 0.3s ease-in-out;
+        }
+        .cart h2 {
+            color: #ff6f61; /* Coral color for cart heading */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .cart-total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555; /* Dark grey for total */
+        }
+        .checkout-btn, .clear-btn {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .checkout-btn {
+            background: #28a745; /* Green for checkout button */
+            color: white;
+        }
+        .checkout-btn:hover {
+            background: #218838; /* Darker green on hover */
+        }
+        .clear-btn {
+            background: #ff2b5e; /* Bright color for clear button */
+            color: white;
+        }
+        .clear-btn:hover {
+            background: #ff1a4d; /* Darker bright color on hover */
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            background: #00796b; /* Teal footer */
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <i class="fas fa-store"></i> Refurbished Electronics Store
+        <span class="cart-icon" id="cartIcon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount">0</span>
+        </span>
+    </h1>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for a product..." onkeyup="filterProducts()">
+        </div>
+        <div class="product-list" id="productList"></div>
+        <p id="noResults" style="display: none; font-size: 18px; color: #ff2b5e; font-weight: bold;">No products found</p>
+    </div>
+    <div class="cart" id="cart">
+        <h2>Your Cart</h2>
+        <div class="cart-items" id="cartItems"></div>
+        <p class="cart-total">Total: $<span id="cartTotal">0</span></p>
+        <button class="checkout-btn" onclick="checkout()">Buy Now</button>
+        <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+    </div>
+    <footer>
+        <p>&copy; 2025 Refurbished Electronics Store. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="#" style="color: #fff; text-decoration: underline;">Facebook</a>, 
+            <a href="#" style="color: #fff; text-decoration: underline;">Twitter</a>, 
+            <a href="#" style="color: #fff; text-decoration: underline;">Instagram</a>
+        </p>
+    </footer>
+    <script>
+        let cart = [];
+
+        function addToCart(product, price, quantity) {
+            const existingProductIndex = cart.findIndex(item => item.product === product);
+            
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity += parseInt(quantity);
+            } else {
+                cart.push({ product, price, quantity: parseInt(quantity) });
+            }
+            
+            updateCart();
+            document.getElementById('cartCount').innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartContainer = document.getElementById('cart');
+
+            if (cart.length === 0) {
+                cartContainer.style.display = 'none';
+                return;
+            }
+
+            cartContainer.style.display = 'block';
+            cartItems.innerHTML = cart.map(item => 
+                `<p>${item.product} - $${item.price} x ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}</p>`
+            ).join('');
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.innerText = total.toFixed(2);
+        }
+
+        function clearCart() {
+            if (confirm("Are you sure you want to clear the cart?")) {
+                cart = [];
+                updateCart();
+                document.getElementById('cartCount').innerText = 0;
+            }
+        }
+
+        function displayProducts(filteredProducts) {
+            const productList = document.getElementById('productList');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredProducts.length === 0) {
+                noResults.style.display = 'block';
+                productList.innerHTML = '';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            productList.innerHTML = filteredProducts.map(product => {
+                const price = (Math.random() * 100 + 50).toFixed(0);
+                const description = `This is a refurbished ${product}. It comes with a warranty and is in excellent condition.`;
+                const rating = (Math.random() * (5 - 4.1) + 4.1).toFixed(1); // Random rating between 4.1 and 5.0
+                const imageUrl = `https://via.placeholder.com/220x140.png?text=Image+of+${encodeURIComponent(product)}`; // Placeholder image URL
+                return `
+                    <div class="product">
+                        <img src="${imageUrl}" alt="Refurbished ${product}">
+                        <h2>Refurbished ${product}</h2>
+                        <p>$${price}</p>
+                        <div class="description">${description}</div>
+                        <div class="rating">Rating: ${rating} <i class="fas fa-star"></i></div>
+                        <input type="number" id="quantity-${product}" value="1" min="1" style="width: 50px; margin-bottom: 10px;">
+                        <button class="buy-btn" onclick="addToCart('${product}', ${price}, document.getElementById('quantity-${product}').value)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterProducts() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const filteredProducts = products.filter(product => product.toLowerCase().includes(searchValue));
+            displayProducts(filteredProducts);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty! Please add items before checkout.");
+                return;
+            }
+            window.location.href = "personal_detail.html";
+        }
+
+        function toggleCart() {
+            const cartContainer = document.getElementById('cart');
+            cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
+        }
+
+        const products = ["Laptop", "Smartphone", "Tablet", "Smartwatch", "Camera", "Headphones", "Bluetooth Speaker",
+            "Gaming Console", "VR Headset", "Monitor", "Printer", "Router", "Graphic Card", "Motherboard",
+            "CPU", "RAM", "Power Supply", "Cooling Fan", "Keyboard", "Mouse", "Projector", "External Hard Drive",
+            "USB Flash Drive", "Earbuds", "Power Bank", "Battery Pack", "Circuit Board", "LCD Display", "LED Strip",
+            "Microcontroller", "Transistor", "Resistor", "Capacitor", "Diode", "Inductor", "Speaker", "Microphone",
+            "Camera Lens", "Fingerprint Sensor", "Optical Drive", "Ethernet Adapter", "Webcam", "Charger",
+            "Power Adapter", "Ribbon Cable", "Heat Sink", "Voltage Regulator", "HDMI Cable", "USB Cable", "Audio Jack",
+            "Smart TV", "Set-Top Box", "DVD Player", "Blu-ray Player", "Amplifier", "Subwoofer", "AV Receiver",
+            "Power Inverter", "Voltage Converter", "Surge Protector", "UPS Battery Backup", "Modem", "Network Switch",
+            "Access Point", "Ethernet Hub", "Fiber Optic Cable", "Coaxial Cable", "Wireless Router", "Network Card",
+            "Hard Disk Drive", "Solid State Drive", "M.2 SSD", "NVMe SSD", "SATA Cable", "IDE Cable", "PCIe Card",
+            "Graphics Tablet", "Drawing Pad", "Game Controller", "Joystick", "VR Controller", "Drone", "Drone Battery",
+            "Drone Controller", "3D Printer", "3D Printer Filament", "Robotic Arm", "CCTV Camera", "Security Alarm",
+            "Biometric Scanner", "RFID Reader", "Smart Lock", "Smart Doorbell", "Video Doorbell", "Smart Thermostat",
+            "Smoke Detector", "CO Detector", "Smart Light Bulb", "Smart Plug", "Smart Switch", "Smart Remote Control",
+            "Digital Multimeter", "Oscilloscope", "Signal Generator", "Frequency Counter", "Power Meter", "Wattmeter",
+            "Laser Pointer", "Barcode Scanner", "POS Terminal", "Card Reader", "Cash Drawer", "Receipt Printer",
+            "Smart Scale", "Medical Scanner", "Infrared Thermometer", "Blood Pressure Monitor", "Heart Rate Monitor",
+            "Pulse Oximeter", "ECG Machine", "Ultrasound Scanner", "Hearing Aid", "E-Reader", "Digital Notepad",
+            "Portable Scanner", "Document Scanner", "Label Printer", "ID Card Printer", "Smart Glasses", "Wearable Camera",
+            "Action Camera", "Dash Cam", "Body Camera", "Gimbal Stabilizer", "Tripod", "Selfie Stick", "Wireless Microphone",
+            "Lavalier Microphone", "Boom Microphone", "PA System", "Studio Monitor", "Audio Mixer", "DJ Controller",
+            "Synthesizer", "Electronic Drum Kit", "MIDI Controller", "Smart Projector", "Overhead Projector",
+            "Interactive Whiteboard", "Laser Engraver", "Digital Clock", "Weather Station", "Solar Panel",
+            "Wind Turbine", "Battery Charger", "Portable Generator", "EV Charger", "Electric Scooter", "Electric Bike",
+            "Hoverboard", "Segway", "Self-Balancing Scooter", "Car Audio System", "Car GPS", "Car Dash Cam",
+            "OBD Scanner", "Head-Up Display", "Tire Pressure Monitor", "Power Window Motor", "Car Inverter",
+            "Solar Power Bank", "Wireless Charging Pad", "Thermal Printer", "Portable Monitor", "External GPU",
+            "Voice Recorder", "Bluetooth Transmitter", "Bluetooth Receiver", "FM Transmitter", "Smart Bicycle Lock",
+            "Bike Speedometer", "Smart Helmet", "VR Gloves", "Haptic Feedback Suit", "Smart Ring", "Smart Bracelet",
+            "RF Transmitter", "RF Receiver", "Induction Coil", "Stepper Motor", "Servo Motor", "Piezoelectric Sensor",
+            "Temperature Sensor", "Humidity Sensor", "Light Sensor", "Motion Sensor", "Gas Sensor", "Infrared Sensor",
+            "Ultrasonic Sensor", "Accelerometer", "Gyroscope", "Magnetometer", "Rotary Encoder", "Audio Equalizer",
+            "Soundbar", "Ceiling Speaker", "Wireless Earphones", "Bone Conduction Headphones", "Electric Toothbrush",
+            "Electric Razor", "Smart Hairbrush", "Portable Air Conditioner", "Smart Air Purifier", "Dehumidifier",
+            "Portable Heater", "Smart Water Bottle", "Smart Mug", "Portable Espresso Machine", "Smart Kitchen Scale",
+            "Electric Kettle", "Smart Microwave", "Smart Refrigerator", "Smart Oven", "Electric Pressure Cooker",
+            "Robotic Vacuum Cleaner", "Smart Trash Can", "Smart Washing Machine", "Smart Dryer", "Electric Iron",
+            "Hair Dryer", "Hair Straightener", "Smart Mirror", "Smart Makeup Brush", "UV Sterilizer",
+            "Handheld Vacuum Cleaner", "Cordless Drill", "Electric Screwdriver", "Power Saw", "Laser Level",
+            "Thermal Imaging Camera", "Endoscope Camera", "Smart Pet Feeder", "Automatic Litter Box", "Smart Aquarium",
+            "Digital Fish Feeder", "Pet GPS Tracker", "Pet Camera", "Electric Fence", "Smart Plant Monitor",
+            "Hydroponic Grow Light", "Solar Water Pump", "Electric Lawn Mower", "Robot Lawn Mower", "Electric Chainsaw",
+            "Electric Leaf Blower", "Smart Sprinkler", "Smart Faucet", "UV Water Purifier",
+            "Ozone Generator", "Air Quality Monitor", "Smart Alarm Clock", "Wireless Intercom", "Smart Home Hub",
+            "Smart IR Blaster", "Smart Key Finder", "RFID Tag", "NFC Tag", "E-Ink Display", "Flexible OLED Screen",
+            "Micro LED Panel", "Touchscreen Display", "Transparent Display", "Quantum Dot Display", "Holographic Display",
+            "8K Camera", "360 Camera", "Smart Binoculars", "Digital Night Vision Goggles", "Augmented Reality Glasses",
+            "AI Voice Assistant", "Gesture Control Device", "Neural Interface", "Brainwave Sensor", "Electromyography Sensor",
+            "Smart Tattoo", "Wearable ECG", "Smart Contact Lens", "Bionic Arm", "Exoskeleton Suit", "Smart Prosthetic Limb",
+            "Mind-Controlled Device", "Autonomous Robot", "AI-Powered Drone", "Smart Farming Equipment", "Smart Beehive",
+            "Automated Greenhouse", "Smart Irrigation System", "Aquaponics Controller", "Blockchain Miner",
+            "Quantum Computer", "AI Chip", "Edge Computing Device", "Cybersecurity Hardware"
+        ];
+        displayProducts(products);
+    </script>
+</body>
+</html>
