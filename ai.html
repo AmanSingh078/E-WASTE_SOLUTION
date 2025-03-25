@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste AI Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #1a1a1a, #111);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .laptop {
+            width: 850px;
+            height: 550px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .laptop-screen {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .header h2 {
+            margin: 0;
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+            font-size: 22px;
+        }
+        .header i {
+            font-size: 26px;
+            color: #00ffcc;
+        }
+        .header button {
+            background: #ff6a00;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+        .header button:hover {
+            background: #ee0979;
+        }
+        .chat-box {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .message {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            margin: 8px 0;
+            word-wrap: break-word;
+            display: flex;
+            align-items: center;
+            position: relative;
+            opacity: 1; /* Set to 1 for visibility */
+            transition: opacity 0.4s; /* Smooth transition */
+        }
+        .user-message {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #00ffcc, #0099ff);
+            color: white;
+        }
+        .ai-message {
+            align-self: flex-start;
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            color: white;
+        }
+        .input-box {
+            display: flex;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .input-box input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            font-size: 16px;
+        }
+        .input-box button {
+            padding: 12px 15px;
+            background: #00ffcc;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: all 0.3s;
+        }
+        .input-box button:hover {
+            background: #0099ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="laptop">
+        <div class="laptop-screen">
+            <div class="header">
+                <i class="fas fa-robot"></i>
+                <h2>E-Waste AI Chatbot</h2>
+                <button onclick="goHome()">Home</button>
+            </div>
+            <div class="chat-box" id="chat-box"></div>
+            <div class="input-box">
+                <input type="text" id="user-input" placeholder="Type your message..." onkeypress="checkEnter(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function displayWelcomeMessage() {
+            let chatBox = document.getElementById("chat-box");
+            let welcomeMessage = document.createElement("div");
+            welcomeMessage.className = "message ai-message";
+            welcomeMessage.innerHTML = "<i class='fas fa-robot'></i> Welcome to the E-Waste AI Chatbot! How can I assist you today?";
+            chatBox.appendChild(welcomeMessage);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+        }
+
+        function sendMessage() {
+            let input = document.getElementById("user-input");
+            let chatBox = document.getElementById("chat-box");
+            let userText = input.value.trim();
+            if (userText === "") return;
+
+            // Display user message
+            let userMessage = document.createElement("div");
+            userMessage.className = "message user-message";
+            userMessage.innerHTML = "<i class='fas fa-user'></i> " + userText;
+            chatBox.appendChild(userMessage);
+            input.value = "";
+            input.focus();
+
+            // Display AI thinking message
+            let thinkingMessage = document.createElement("div");
+            thinkingMessage.className = "message ai-message";
+            thinkingMessage.innerHTML = "<i class='fas fa-spinner fa-spin'></i> AI is thinking...";
+            chatBox.appendChild(thinkingMessage);
+
+            // Send request to backend
+            fetch("http://127.0.0.1:5000/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: userText })
+})
+.then(response => response.json())
+.then(data => {
+    chatBox.removeChild(thinkingMessage);
+    let aiMessage = document.createElement("div");
+    aiMessage.className = "message ai-message";
+    aiMessage.innerHTML = "<i class='fas fa-robot'></i> " + (data.response || "No response received.");
+    chatBox.appendChild(aiMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+})
+.catch(error => {
+    console.error("Fetch error:", error);
+    chatBox.removeChild(thinkingMessage);
+    let errorMessage = document.createElement("div");
+    errorMessage.className = "message ai-message";
+    errorMessage.innerHTML = "<i class='fas fa-exclamation-triangle'></i> Server is down! Restart Flask.";
+    chatBox.appendChild(errorMessage);
+});
+
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function goHome() {
+            window.location.href = "index.html"; // Change this to your desired URL
+        }
+
+        // Display welcome message on page load
+        window.onload = displayWelcomeMessage;
+    </script>
+</body>
+</html>
