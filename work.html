@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currently Not Available</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            animation: backgroundAnimation 10s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #ff6a00, #ee0979); }
+            50% { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+            100% { background: linear-gradient(135deg, #ff6a00, #ee0979); }
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+
+        .spinner {
+            width: 100px;
+            height: 100px;
+            border: 12px solid rgba(255, 255, 255, 0.3);
+            border-top: 12px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 28px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 1s forwards; /* Delay for message */
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: fadeIn 1s ease-in-out 2s forwards; /* Delay for footer */
+        }
+
+        /* Pulse effect for the spinner */
+        .spinner:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: pulse 1.5s infinite;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Adding a bouncing effect to the message */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .message {
+            animation: bounce 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <p class="message">Currently Not Available, please wait...</p>
+    </div>
+    <div class="footer">© 2025 WhisperWel</div>
+
+    <script>
+        // Simulate a process that takes time
+        setTimeout(() => {
+            document.querySelector('.spinner').style.display = 'none';
+            document.querySelector('.message').textContent = 'Sorry,Work is currently unavailable! we try our best to give you servies';
+            document.querySelector('.message').style.opacity = '1'; // Show message
+        }, 5000); // Change the time as needed (5000ms = 5 seconds)
+    </script>
+</body>
+</html>
